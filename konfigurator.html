@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style w JavaScript</title>
+    <link rel="stylesheet" href="style6.css">
+</head>
+<body>
+        <div id="lewy">
+            <h1>„Konfigurator stylu</h1>
+            <p>Podaj kolor tła</p>
+            <button id="b1" onclick="indigo()">Indigo</button>
+            <button id="b2"onclick="steelBlue()">SteelBlue</button>
+            <button id="b3"onclick="olive()">Olive</button>
+            <p>Podaj kolor czcionki</p>
+            
+            <select id="kolorczcionki" onchange="kolorcz()">
+                <option id="white" on>White</option>
+                <option id="tan">Tan</option>
+                <option id="bisque">Bisque</option>
+                <option id="plum"> Plum</option>
+            </select>
+            <p>Podaj rozmiar czcionki w procentach, np. 200%</p>
+           <input type="text" value="100%" id="rozmiar" onchange="rozmiar()"> 
+
+           <p>Czy rysunek ma mieć ramkę?</p>
+           <input type="checkbox" id="obramowanie" onchange="obramowanie()"> <label>Czy rysunek ma mieć ramkę?</label>
+
+           <p>Jaki jest typ punktora listy?</p>
+           <input type="radio" name="typ" id="dysk" onchange="punktor()" checked> 
+           <label>dysk</label><br>
+            <input type="radio" name="typ" id="kwadrat" onchange="punktor()"> 
+            <label>kwadrat</label><br>
+            <input type="radio" name="typ" id="okrag" onchange="punktor()"> 
+            <label>okrąg</label> <br>
+
+
+        </div>
+
+
+        <div id ="prawy">
+
+            <img src="gibraltar.jpg" alt="półwysep Gibraltar" id="zdjecie">
+            <ul id="lista">
+                <li>element 1</li>
+                <li>element 2</li>
+                <li>element 3</li>
+
+            </ul>
+            
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+
+
+        </div>
+
+        <div id ="stopka">
+            Autor:***************
+
+
+        </div>
+
+
+<script>
+
+function indigo(){
+    var kolortla = document.getElementById('b1').textContent;
+    document.getElementById('prawy').style.backgroundColor = kolortla;
+}
+function steelBlue() {
+    var kolortla = document.getElementById('b1').textContent;
+    document.getElementById('prawy').style.backgroundColor = kolortla;
+}
+function olive() {
+    var kolortla = document.getElementById('b1').textContent;
+    document.getElementById('prawy').style.backgroundColor = kolortla;
+}
+function kolorcz() {
+    var kolorcz = document.getElementById('kolorczcionki').value;
+    document.getElementById('prawy').style.color = kolorcz;
+}
+function rozmiar() {
+    var rozmiar = document.getElementById('rozmiar').value;
+    document.getElementById('prawy').style.fontSize = rozmiar;
+}
+function obramowanie() {
+    var obramowanie = document.getElementById('obramowanie').checked;
+    if (obramowanie == true){
+        document.getElementById('zdjecie').style.border = "1px solid white";
+    }else{
+        document.getElementById('zdjecie').style.border = "none";
+    }
+    
+}
+function punktor() {
+    var dysk = document.getElementById('dysk').checked;
+    var okrag = document.getElementById('okrag').checked;
+    var kwadrat = document.getElementById('kwadrat').checked;
+  
+    if(dysk == true){
+        document.getElementById('lista').style.listStyle = "disc";
+    } else if(okrag == true){
+        document.getElementById('lista').style.listStyle = "circle";
+    } else{
+        document.getElementById('lista').style.listStyle = "square";
+    }
+}
+    </script>
+</body>
+</html>
